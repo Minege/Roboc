@@ -8,6 +8,8 @@ Exécutez-le avec Python pour lancer le jeu.
 
 import os
 
+import Carte
+
 # On charge les cartes existantes
 cartes = []
 for nom_fichier in os.listdir("cartes"):
@@ -16,13 +18,14 @@ for nom_fichier in os.listdir("cartes"):
         nom_carte = nom_fichier[:-3].lower()
         with open(chemin, "r") as fichier:
             contenu = fichier.read()
-            # Création d'une carte, à compléter
-
+            cartes.append(Carte.Carte(nom_carte, contenu))
 # On affiche les cartes existantes
+
 print("Labyrinthes existants :")
 for i, carte in enumerate(cartes):
     print("  {} - {}".format(i + 1, carte.nom))
-
+print(cartes[0].labyrinthe)
+choix = Carte.Carte.demanderCarte()
 # Si il y a une partie sauvegardée, on l'affiche, à compléter
 
 # ... Complétez le programme ...
