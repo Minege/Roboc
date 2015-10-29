@@ -20,12 +20,15 @@ for nom_fichier in os.listdir("cartes"):
             contenu = fichier.read()
             cartes.append(Carte.Carte(nom_carte, contenu))
 # On affiche les cartes existantes
-
+print("")
 print("Labyrinthes existants :")
 for i, carte in enumerate(cartes):
     print("  {} - {}".format(i + 1, carte.nom))
 
-choix = Carte.demander_carte(Carte)
+# if Carte.Carte.ouvrire_partie():
+#    print("---Reprise de la partie en cours---")
+# else:
+choix = Carte.Carte.demander_carte(Carte.Carte)
 
 while input("entre 1 pour continuer") is not "1":
     cartes[choix]

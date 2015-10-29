@@ -18,7 +18,7 @@ class Carte:
         return "<Carte {}>".format(self.nom)
 
     def demander_carte(self):
-        carte = input("Choisisez une care parmi celles-ci : ")
+        carte = input("Choisisez une carte parmi celles-ci : ")
 
         try:
             carte = int(carte)
@@ -38,7 +38,7 @@ class Carte:
         # Verifier si il n'y a pas dèja une partie, et puis après, ouvrire le fichier
         mon_unpickler = pickle.Unpickler("partie_Roboc")
         if mon_unpickler.load() is "":
-            pass
+            return False
         else:
             choix = ""
             while choix != "N" or choix != "O":
@@ -46,5 +46,8 @@ class Carte:
                 if choix == "O".lower():
                     print("La partie va recommencer depuis là ou vous étiez")
                     self.labyrinthe = mon_unpickler.load()
+                    return True
                 elif choix == "N".lower():
                     print("Une nouvelle partie va commencer")
+                    return False
+        return "Partie pas ouverte"
