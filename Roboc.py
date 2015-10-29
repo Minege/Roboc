@@ -24,8 +24,12 @@ for nom_fichier in os.listdir("cartes"):
 print("Labyrinthes existants :")
 for i, carte in enumerate(cartes):
     print("  {} - {}".format(i + 1, carte.nom))
-print(cartes[0].labyrinthe)
-choix = Carte.Carte.demanderCarte()
+
+choix = Carte.demander_carte(Carte)
+
+while input("entre 1 pour continuer") is not "1":
+    cartes[choix]
+
 # Si il y a une partie sauvegardée, on l'affiche, à compléter
 
 # ... Complétez le programme ...
