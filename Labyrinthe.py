@@ -21,10 +21,14 @@ class Labyrinthe:
             char_grille.append(lettre)
 
         # On a la longueur de chaque ligne, et les caractères
+        print(len(nb_de_char_grille))
+        print(nb_de_char_grille)
+        print(char_grille)
+        print(len(char_grille))
         i = 1
         while i < len(nb_de_char_grille):
-            for numero_ligne in range(5):
-                ligne = [char_grille[i]] * nb_de_char_grille[i]  # Je crée une liste avec 6 "X" dedans
+            for numero_ligne in range(len(nb_de_char_grille)):
+                ligne = [char_grille[i]] * nb_de_char_grille[i]
                 self.grille.append(ligne)
                 i += 1
         print(self.grille)
