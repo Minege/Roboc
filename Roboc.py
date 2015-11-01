@@ -31,7 +31,7 @@ for i, carte in enumerate(cartes):
 choix = Carte.Carte.demander_carte(Carte.Carte)
 
 while input("entre 1 pour continuer") is not "1":
-    pass
+    cartes[choix]._labyrinthe.bouger()
 
 # Si il y a une partie sauvegardée, on l'affiche, à compléter
 

@@ -33,3 +33,25 @@ class Labyrinthe:
         for ligne in self.grille:
             for colonne in ligne:
                 print(colonne, end="")
+
+    def bouger(self):
+        direction = input("Choisisez une direction dans laquelle aller : ")
+        if direction == "n".upper() or direction == "n".upper() or direction == "n".upper() or direction == "n".upper():
+             if direction == "N":
+                #On execute les actions pour le nord
+                print(self.grille)
+                self.grille = ["O", "O"]
+                position_robot = self.grille.index('O')
+                print(self.grille)
+                print(position_robot)
+             if direction == "S":
+                #Action pour le sud
+                pass
+             if direction == "E":
+                pass
+             if direction == "O":
+                pass
+
+        else:
+            print("Veuillez entrer une direction valide (N, S, E, O)")
+            return self.bouger()
