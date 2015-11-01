@@ -6,6 +6,6 @@ O OOOO O.O
 O O O    U
 O OOOOOO.O
 O O      O
-O O OOOOOO
-O . O    O
-OOOOOOOOOO 
+O O.OOOOOO
+O   O    O
+OOOOOOOOOO

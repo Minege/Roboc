@@ -20,20 +20,16 @@ class Labyrinthe:
                 nb_de_char = 0
             char_grille.append(lettre)
 
-        # On a la longueur de chaque ligne, et les caractères
-        print(len(nb_de_char_grille))
-        print(nb_de_char_grille)
-        print(char_grille)
-        print(len(char_grille))
-        i = 1
-        while i < len(nb_de_char_grille):
-            for numero_ligne in range(len(nb_de_char_grille)):
-                ligne = [char_grille[i]] * nb_de_char_grille[i]
-                self.grille.append(ligne)
-                i += 1
-        print(self.grille)
+        x = 0
+        for y in nb_de_char_grille:
+            tempList = []
+            for z in range(0, y):
+                tempList.append(char_grille[x + z])
 
+            self.grille.append(tempList)
+            x += y
+
+    def __str__(self):
         for ligne in self.grille:
-            for case in ligne:
-                print(case, end="")
-            print()  # Après une ligne on fait un retour à la ligne
+            for colonne in ligne:
+                print(colonne, end="")

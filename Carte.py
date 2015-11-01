@@ -12,7 +12,7 @@ class Carte:
 
     def __init__(self, nom, chaine):
         self.nom = nom
-        self.labyrinthe = Labyrinthe.Labyrinthe("X", chaine)
+        self._labyrinthe = Labyrinthe.Labyrinthe("X", chaine)
         Carte.nb_de_objet += 1
     def __repr__(self):
         return "<Carte {}>".format(self.nom)
