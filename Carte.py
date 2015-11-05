@@ -2,7 +2,7 @@
 
 """Ce module contient la classe Carte."""
 import pickle
-
+import os
 import Labyrinthe
 
 
@@ -12,7 +12,7 @@ class Carte:
 
     def __init__(self, nom, chaine):
         self.nom = nom
-        self._labyrinthe = Labyrinthe.Labyrinthe("X", chaine)
+        self.labyrinthe = Labyrinthe.Labyrinthe("X", chaine)
         Carte.nb_de_objet += 1
     def __repr__(self):
         return "<Carte {}>".format(self.nom)
@@ -22,6 +22,7 @@ class Carte:
 
         try:
             carte = int(carte)
+            carte -= 1
         except TypeError:
             print("Tu dois entrer un nombre !")
             return self.demander_carte()
@@ -31,23 +32,27 @@ class Carte:
         return carte
 
     def enregistrer_partie(self):
-        mon_pickler = pickle.Pickler("partie_Roboc")
-        mon_pickler.dump(self.labyrinthe)
+        with open("partie_Roboc.minege", "wb") as partie:
+            mon_pickler = pickle.Pickler(partie)
+            mon_pickler.dump(self.labyrinthe)
 
     def ouvrire_partie(self):
         # Verifier si il n'y a pas dèja une partie, et puis après, ouvrire le fichier
-        mon_unpickler = pickle.Unpickler("partie_Roboc")
-        if mon_unpickler.load() is "":
-            return False
-        else:
-            choix = ""
-            while choix != "N" or choix != "O":
-                choix = input("Vous aviez dèja une partie en cours, voulez-vous la continuer ? O/N")
-                if choix == "O".lower():
-                    print("La partie va recommencer depuis là ou vous étiez")
-                    self.labyrinthe = mon_unpickler.load()
-                    return True
-                elif choix == "N".lower():
-                    print("Une nouvelle partie va commencer")
+        if os.path.isfile("partie_Roboc.minege"):
+            with open("partie_Roboc.minege", "rb") as partie:
+                mon_unpickler = pickle.Unpickler(partie)
+                if mon_unpickler.load() == None:
                     return False
-        return "Partie pas ouverte"
+                else:
+                    choix = ""
+                    while choix != "N" or choix != "O":
+                        choix = input("Vous aviez dèja une partie en cours, voulez-vous la continuer ? O : Oui/N : Non")
+                        if choix == "O":
+                            print("La partie va recommencer depuis là ou vous étiez")
+                            self.labyrinthe = mon_unpickler.load()
+                        elif choix == "N":
+                            print("Une nouvelle partie va commencer")
+                            os.remove("partie_Roboc.minege")
+                            return False
+        else:
+            pass

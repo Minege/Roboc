@@ -1,5 +1,3 @@
-# -*-coding:Utf-8 -*
-
 """Ce fichier contient le code principal du jeu.
 
 Exécutez-le avec Python pour lancer le jeu.
@@ -8,7 +6,7 @@ Exécutez-le avec Python pour lancer le jeu.
 
 import os
 
-import Carte
+from Carte import Carte
 
 # On charge les cartes existantes
 cartes = []
@@ -18,21 +16,35 @@ for nom_fichier in os.listdir("cartes"):
         nom_carte = nom_fichier[:-3].lower()
         with open(chemin, "r") as fichier:
             contenu = fichier.read()
-            cartes.append(Carte.Carte(nom_carte, contenu))
+            cartes.append(Carte(nom_carte, contenu))
 # On affiche les cartes existantes
-print("")
-print("Labyrinthes existants :")
-for i, carte in enumerate(cartes):
-    print("  {} - {}".format(i + 1, carte.nom))
+continuer_jeu = True
+while continuer_jeu:
+    print("")
+    print("Labyrinthes existants :")
+    for i, carte in enumerate(cartes):
+        print("  {} - {}".format(i + 1, carte.nom))
 
-# if Carte.Carte.ouvrire_partie():
-#    print("---Reprise de la partie en cours---")
-# else:
-choix = Carte.Carte.demander_carte(Carte.Carte)
-
-while input("entre 1 pour continuer") is not "1":
-    cartes[choix]._labyrinthe.bouger()
-
-# Si il y a une partie sauvegardée, on l'affiche, à compléter
-
-# ... Complétez le programme ...
+    # if Carte.Carte.ouvrire_partie():
+    #    print("---Reprise de la partie en cours---")
+    # else:
+    choix = Carte.demander_carte(Carte)
+    cartes[choix].ouvrire_partie()
+    while cartes[choix].labyrinthe.finish != True:
+        if cartes[choix].labyrinthe.bouger() == True:
+            cartes[choix].enregistrer_partie()
+            quit()
+        else:
+            cartes[choix].enregistrer_partie()
+    if os.path.isfile("partie_Roboc.minege"):
+        os.remove("partie_Roboc.minege")
+    #On ne peut pas choisir la même map après une partie
+    #Problème de lecture de map.
+while continuer_jeu:
+    l = input("Voulez-vous refaire une partie ? [O : Oui/N : Non] : ")
+    if l == "N" or l == "n":
+        continuer_jeu = False
+        print("Au revoir !")
+        quit()
+    elif l == "O" or l == "o":
+        continuer_jeu = True
