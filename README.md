@@ -1,2 +1,2 @@
 # Roboc
-Ce jeu, aura, *surement* une interface graphique par la suite.
+Ce jeu, aura, **surement** une interface graphique par la suite.
