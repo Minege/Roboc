@@ -38,13 +38,20 @@ while continuer_jeu:
             cartes[choix].enregistrer_partie()
     if os.path.isfile("partie_Roboc.minege"):
         os.remove("partie_Roboc.minege")
-    #On ne peut pas choisir la même map après une partie
-    #Problème de lecture de map.
-while continuer_jeu:
-    l = input("Voulez-vous refaire une partie ? [O : Oui/N : Non] : ")
-    if l == "N" or l == "n":
-        continuer_jeu = False
-        print("Au revoir !")
-        quit()
-    elif l == "O" or l == "o":
-        continuer_jeu = True
+        #On ne peut pas choisir la même map après une partie
+        #Problème de lecture de map.
+    while continuer_jeu:
+        l = input("Voulez-vous refaire une partie ? [O : Oui/N : Non] : ")
+        l = l.upper()
+        if l == "N":
+            continuer_jeu = False
+            print("Au revoir !")
+            quit()
+        if l == "O":
+            continuer_jeu = True
+            pass
+        else:
+            continue
+        pass
+    #TODO: Importation de map érroné
+    #TODO: On ne peut pas choisir deux fois la même partie

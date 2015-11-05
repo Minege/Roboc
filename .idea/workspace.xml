@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6cd5e7c5-4ccc-47e1-abf5-e4c09ef3db58" name="Default" comment="Jump par 1">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Minege.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+    <list default="true" id="6cd5e7c5-4ccc-47e1-abf5-e4c09ef3db58" name="Default" comment="Upload pour securité">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Roboc.py" afterPath="$PROJECT_DIR$/Roboc.py" />
     </list>
     <ignored path="Roboc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +27,8 @@
       <file leaf-file-name="Roboc.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Roboc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.62728786">
-              <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.7004992">
+              <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
               <folding>
                 <element signature="e#100#109#0" expanded="true" />
               </folding>
@@ -296,7 +294,13 @@
       <option name="project" value="LOCAL" />
       <updated>1446739971195</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Upload pour securité">
+      <created>1446741428960</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1446741428960</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TodoView">
@@ -346,7 +350,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Jump par 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Jump par 1" />
+    <MESSAGE value="Upload pour securité" />
+    <option name="LAST_COMMIT_MESSAGE" value="Upload pour securité" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -458,8 +463,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Roboc.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62728786">
-          <caret line="43" column="70" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
+        <state vertical-scroll-proportion="0.7004992">
+          <caret line="50" column="23" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
           <folding>
             <element signature="e#100#109#0" expanded="true" />
           </folding>
