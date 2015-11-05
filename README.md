@@ -1,2 +1,2 @@
 # Roboc
-**PETIT CASSOULET**
+Ce jeu, aura, _surement_ une interface graphique par la suite.
