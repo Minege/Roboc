@@ -48,6 +48,7 @@ class Labyrinthe:
                 if self.grille[ligne][colonne] == "X":
                     position_robot = [ligne, colonne]
         #------------------------------------------------------
+        #TODO: Mettre les jumps de plusieurs coup
         direction = input("Choisisez une direction dans laquelle aller : ")
         direction = direction.lower()
         if direction[0] == "n" or direction[0] == "s" or direction[0] == "e" or direction[0] == "o" or direction[0] == "q":

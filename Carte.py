@@ -5,7 +5,7 @@ import pickle
 import os
 import Labyrinthe
 
-
+#TODO: importation de map ne marche pas
 class Carte:
     nb_de_objet = 0
     """Objet de transition entre un fichier et un labyrinthe."""
