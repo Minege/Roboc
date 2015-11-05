@@ -41,18 +41,18 @@ class Carte:
         if os.path.isfile("partie_Roboc.minege"):
             with open("partie_Roboc.minege", "rb") as partie:
                 mon_unpickler = pickle.Unpickler(partie)
-                if mon_unpickler.load() == None:
-                    return False
-                else:
-                    choix = ""
-                    while choix != "N" or choix != "O":
-                        choix = input("Vous aviez dèja une partie en cours, voulez-vous la continuer ? O : Oui/N : Non")
-                        if choix == "O":
-                            print("La partie va recommencer depuis là ou vous étiez")
-                            self.labyrinthe = mon_unpickler.load()
-                        elif choix == "N":
-                            print("Une nouvelle partie va commencer")
-                            os.remove("partie_Roboc.minege")
-                            return False
+                choix = ""
+                while choix != "N" or choix != "O":
+                    choix = input("Vous aviez dèja une partie en cours, voulez-vous la continuer ? O : Oui/N : Non")
+                    choix = choix.upper()
+                    if choix == "O":
+                        print("La partie va recommencer depuis là ou vous étiez")
+                        self.labyrinthe = mon_unpickler.load()
+                        return True
+
+                    if choix == "N":
+                        print("Une nouvelle partie va commencer")
+                        os.remove("partie_Roboc.minege")
+                        return False
         else:
-            pass
+            print("Il n'y a pas de partie existance, création d'une nouvelle")
