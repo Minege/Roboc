@@ -1,3 +1,4 @@
+#coding:Utf-8
 """Ce fichier contient le code principal du jeu.
 
 Exécutez-le avec Python pour lancer le jeu.
@@ -18,7 +19,9 @@ for nom_fichier in os.listdir("cartes"):
             contenu = fichier.read()
             cartes.append(Carte(nom_carte, contenu))
 # On affiche les cartes existantes
+
 continuer_jeu = True
+
 while continuer_jeu:
     print("")
     print("Labyrinthes existants :")
@@ -39,8 +42,8 @@ while continuer_jeu:
 
     if os.path.isfile("partie_Roboc.minege"):
         os.remove("partie_Roboc.minege")
-        #On ne peut pas choisir la même map après une partie
-        #Problème de lecture de map.
+
+    cartes[choix].reset_map()
     while continuer_jeu:
         l = input("Voulez-vous refaire une partie ? [O : Oui/N : Non] : ")
         l = l.upper()
@@ -55,5 +58,3 @@ while continuer_jeu:
             continue
         pass
     continuer_jeu = True
-    #TODO: Importation de map érroné
-    #TODO: On ne peut pas choisir deux fois la même partie

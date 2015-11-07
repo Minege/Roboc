@@ -1,13 +1,13 @@
 OOOOOOOOOO
 O        O
-OOOOO.OOOO                 OOOOOOOO
-O        O                 O      O
-O    X   .                 O  U   O
-O        O                 OOOOOOOO
-O   OO.OOO
-O   O    O
-O   OOO  OOOOOOOOOO
-O   O    O        O
-O   .    .    U   O
-O OOO    O        O
+OOOOO.OOOO                 OOOOOOOOOOO
+O        OOOOOOOOOOOOOOOOOOO     O U OOOO
+O    X   .   O   OO   O  O O  O  O  OOOO
+O        O OOO.    .O.   O.   O   O O OOO
+O   OO.OOO     O  O    O   O  O O   O OOO
+O   O    OOOOOOO.OOOOOOOOOOOOOOOOOOOOOOO
+O   OOO  OOOOOOO.OO
+O   O    O    O   O
+O   .    .    O   O
+O OOO    O    .   O
 OOOOOOOOOOOOOOOOOOO

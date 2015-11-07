@@ -1,4 +1,4 @@
-# -*-coding:Utf-8 -*
+# coding:Utf-8
 
 """Ce module contient la classe Carte."""
 import pickle
@@ -12,7 +12,8 @@ class Carte:
 
     def __init__(self, nom, chaine):
         self.nom = nom
-        self.labyrinthe = Labyrinthe.Labyrinthe("X", chaine)
+        self.chaine = chaine
+        self.labyrinthe = Labyrinthe.Labyrinthe(chaine)
         Carte.nb_de_objet += 1
     def __repr__(self):
         return "<Carte {}>".format(self.nom)
@@ -55,4 +56,7 @@ class Carte:
                         os.remove("partie_Roboc.minege")
                         return False
         else:
-            print("Il n'y a pas de partie existance, création d'une nouvelle")
+            pass
+    def reset_map(self):
+        self.labyrinthe = None
+        self.labyrinthe = Labyrinthe.Labyrinthe(self.chaine)
