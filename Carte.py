@@ -13,7 +13,7 @@ class Carte:
     def __init__(self, nom, chaine):
         self.nom = nom
         self.chaine = chaine
-        self.labyrinthe = Labyrinthe.Labyrinthe(chaine)
+        self._labyrinthe = Labyrinthe.Labyrinthe(chaine)
         Carte.nb_de_objet += 1
     def __repr__(self):
         return "<Carte {}>".format(self.nom)
@@ -35,7 +35,7 @@ class Carte:
     def enregistrer_partie(self):
         with open("partie_Roboc.minege", "wb") as partie:
             mon_pickler = pickle.Pickler(partie)
-            mon_pickler.dump(self.labyrinthe)
+            mon_pickler.dump(self._labyrinthe)
 
     def ouvrire_partie(self):
 
@@ -48,7 +48,7 @@ class Carte:
                     choix = choix.upper()
                     if choix == "O":
                         print("La partie va recommencer depuis là ou vous étiez")
-                        self.labyrinthe = mon_unpickler.load()
+                        self._labyrinthe = mon_unpickler.load()
                         return True
 
                     if choix == "N":
@@ -59,5 +59,8 @@ class Carte:
         else:
             pass
     def reset_map(self):
-        self.labyrinthe = None
-        self.labyrinthe = Labyrinthe.Labyrinthe(self.chaine)
+        self._labyrinthe = None
+        self._labyrinthe = Labyrinthe.Labyrinthe(self.chaine)
+    def _get_labyrinthe(self): return self._labyrinthe
+    def _set_labyrinthe(self, new_labyrinthe): self._labyrinthe = new_labyrinthe
+    labyrinthe = property(_get_labyrinthe, _set_labyrinthe)

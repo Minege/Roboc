@@ -9,7 +9,7 @@ class Labyrinthe:
     def __init__(self, obstacles):
         self.grille = []
         self.is_on_a_port = False
-        self.finish = False
+        self._finish = False
         # Initialisation du dictionnaire
         self.nb_de_char_grille = []
         char_grille = []
@@ -57,17 +57,17 @@ class Labyrinthe:
         if direction == "E":
             a = p2-nb_de_coups
             while a < p2:
-                if self.grille[a][p2] == "O" :
+                if self.grille[p1][a] == "O" :
                     return False
                 a += 1
             #Si il sort de la boucle sans être passé par un mur, on return True
             return True
         if direction == "O":
             a = p2+nb_de_coups
-            while a < p2:
-                if self.grille[a][p2] == "O" :
+            while a > p2:
+                if self.grille[p1][a] == "O" :
                     return False
-                a += 1
+                a -= 1
             #Si il sort de la boucle sans être passé par un mur, on return True
             return True
 
@@ -109,7 +109,7 @@ class Labyrinthe:
                     #Check si il y a une sortie
                     if self.grille[p1-nb_de_fois][p2] == "U":
                         print("Tu as réussi le labyrinthe")
-                        self.finish = True
+                        self._finish = True
                     #Check si on peut passer
                     if self.grille[p1-nb_de_fois][p2] == " ":
                         self.grille[p1-nb_de_fois][p2] = "X"
@@ -135,7 +135,7 @@ class Labyrinthe:
                     #Check si il y a une sortie
                     if self.grille[p1+1][p2] == "U":
                         print("Tu as réussi le labyrinthe")
-                        self.finish = True
+                        self._finish = True
                     #Check si on peut passer
                     if self.grille[p1+nb_de_fois][p2] == " ":
                         self.grille[p1+nb_de_fois][p2] = "X"
@@ -151,6 +151,7 @@ class Labyrinthe:
                 else:
                     print("Il y a un mur, tu ne peux pas passer !")
                     return self.bouger()
+
              if direction[0] == "e":
                    #Action pour le sud
                 #+2 lignes
@@ -162,7 +163,7 @@ class Labyrinthe:
                     #Check si il y a une sortie
                     if self.grille[p1][p2-nb_de_fois] == "U":
                         print("Tu as réussi le labyrinthe")
-                        self.finish = True
+                        self._finish = True
                     #Check si on peut passer
                     if self.grille[p1][p2-nb_de_fois] == " ":
                         self.grille[p1][p2-nb_de_fois] = "X"
@@ -189,7 +190,7 @@ class Labyrinthe:
                     #Check si il y a une sortie
                     if self.grille[p1][p2+nb_de_fois] == "U":
                         print("Tu as réussi le labyrinthe")
-                        self.finish = True
+                        self._finish = True
                     #Check si on peut passer
                     if self.grille[p1][p2+nb_de_fois] == " ":
                         self.grille[p1][p2+nb_de_fois] = "X"
@@ -211,3 +212,6 @@ class Labyrinthe:
         else:
             print("Veuillez entrer une direction valide (N, S, E, O)")
             return self.bouger()
+    def _get_finish(self): return self._finish
+    def _set_finish(self, new_finish): self._finish = new_finish
+    finish = property(_get_finish, _set_finish)
