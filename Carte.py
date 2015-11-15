@@ -5,7 +5,7 @@ import pickle
 import os
 import Labyrinthe
 
-#TODO: importation de map ne marche pas
+
 class Carte:
     nb_de_objet = 0
     """Objet de transition entre un fichier et un labyrinthe."""
@@ -38,7 +38,7 @@ class Carte:
             mon_pickler.dump(self.labyrinthe)
 
     def ouvrire_partie(self):
-        # Verifier si il n'y a pas dèja une partie, et puis après, ouvrire le fichier
+
         if os.path.isfile("partie_Roboc.minege"):
             with open("partie_Roboc.minege", "rb") as partie:
                 mon_unpickler = pickle.Unpickler(partie)
@@ -53,6 +53,7 @@ class Carte:
 
                     if choix == "N":
                         print("Une nouvelle partie va commencer")
+                        partie.close()
                         os.remove("partie_Roboc.minege")
                         return False
         else:
