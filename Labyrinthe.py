@@ -55,19 +55,19 @@ class Labyrinthe:
             #Si il sort de la boucle sans être passé par un mur, on return True
             return True
         if direction == "E":
-            a = p2-nb_de_coups
-            while a < p2:
-                if self.grille[p1][a] == "O" :
-                    return False
-                a += 1
-            #Si il sort de la boucle sans être passé par un mur, on return True
-            return True
-        if direction == "O":
             a = p2+nb_de_coups
             while a > p2:
                 if self.grille[p1][a] == "O" :
                     return False
                 a -= 1
+            #Si il sort de la boucle sans être passé par un mur, on return True
+            return True
+        if direction == "O":
+            a = p2-nb_de_coups
+            while a < p2:
+                if self.grille[p1][a] == "O" :
+                    return False
+                a += 1
             #Si il sort de la boucle sans être passé par un mur, on return True
             return True
 
